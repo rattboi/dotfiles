@@ -1,0 +1,21 @@
+"1.0b6 (created: 2011/03/09 09:25:18)
+
+loadplugins '\.(js|penta)$'
+group user
+map -modes=n,v J -builtin <C-d>
+map -modes=n,v K -builtin <C-u>
+set autocomplete=
+set guioptions=sn
+set newtab=help,prefs
+set showmode=!normal,!ex,base
+set insertmode
+set titlestring=
+
+set passkeys=
+
+set passkeys+='^https?://www\.google\.com/reader':jkuvrs,ga,gs
+set passkeys+='mail\.google\.com/(mail|a)/':jkx#co,gi,ga
+set passkeys+='^https?://apps\.rackspace\.com/b/':jk/?GcrKOoq,gg
+
+
+" vim: set ft=pentadactyl:
