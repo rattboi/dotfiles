@@ -1,0 +1,18 @@
+Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 100
+       , lowerOnStart = True
+       , border = NoBorder
+       , borderColor = "grey"
+       , commands = [ Run Date "%a %b %_d %l:%M" "date" 10 
+		    , Run MultiCpu ["-m","3","-L","3","-H","50","--normal","green","--high","red","-t","CPU1:<total0>% - CPU2:<total1>%"] 10
+            , Run TopProc ["-M","15"] 50
+		    , Run Memory ["-t","Mem: <usedratio>%"] 10
+            , Run StdinReader
+		, Run Battery ["-L","25","-H","60","--high","green","--normal","yellow","--low","red","-t","Batt:<leftbar>(<left>%)"] 10
+		    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %multicpu% | %top% | %memory% | %battery% | <fc=#ee9a00>%date%</fc>"
+       }
