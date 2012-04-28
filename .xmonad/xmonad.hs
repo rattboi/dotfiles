@@ -63,7 +63,8 @@ myManageHook = (composeAll . concat $
 	  [ resource  =? "desktop_window" --> doIgnore
 	  , className =? "urxvt"          --> doShift "1-term"
 	  , className =? "Skype"          --> doShift "5-skype"
-          , title     =? "ssh"            --> doShift "3-ssh"
+	  , className =? "Thunderbird"    --> doShift "4-email"
+    , title     =? "ssh"            --> doShift "3-ssh"
 	  ] ])
 	  where floats = ["MPlayer", ".", "feh"]
 	        webs   = ["Firefox-bin", "Firefox", "Minefield"]
