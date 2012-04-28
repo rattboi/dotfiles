@@ -49,7 +49,7 @@ myKeys =
 	, ((altMask .|. controlMask, xK_p ), runOrRaisePrompt defaultXPConfig)
     , ((myModMask, xK_u), focusUrgent)
     , ((myModMask, xK_t), spawn "thunar")
-    , ((myModMask, xK_l), spawn "xlock")
+    , ((myModMask .|. altMask, xK_l), spawn "xlock")
     , ((myModMask, xK_Right), nextWS)
     , ((myModMask, xK_Left),  prevWS)
     , ((myModMask .|. shiftMask, xK_r), spawn "~/.bin/rotate.sh")
