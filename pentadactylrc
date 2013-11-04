@@ -4,6 +4,7 @@ loadplugins '\.(js|penta)$'
 group user
 map -modes=n,v J -builtin <C-d>
 map -modes=n,v K -builtin <C-u>
+map -modes=n,v gs :tabnew about:sync-tabs<CR>
 set autocomplete=
 set guioptions=sn
 set newtab=help,prefs
@@ -13,9 +14,10 @@ set titlestring=
 
 set passkeys=
 
-set passkeys+='^https?://www\.google\.com/reader':jkuvrs,ga,gs
+set passkeys+='^https?://cloud\.feedly\.com/':jknpvrsoxmVMJ?/,ga,gm,gl
 set passkeys+='mail\.google\.com/(mail|a)/':jkx#co,gi,ga
-set passkeys+='^https?://apps\.rackspace\.com/b/':jk/?GcrKOoq,gg
 
+" might break other stuff. this is for subsonic
+set passkeys+='/mini/':<Space>
 
 " vim: set ft=pentadactyl:
