@@ -35,26 +35,11 @@ set backspace=indent,eol,start
 set number
 set numberwidth=4
 
-" Rainbow Parentheses settings
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
-
 set nobackup
 set history=50      " keep 50 lines of command line history
 set ruler           " show the cursor position all the time
 set showcmd         " display incomplete commands
 set incsearch       " do incremental searching
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
-
-
-set nowrap
 
 set tabstop=4
 set softtabstop=4
@@ -72,3 +57,8 @@ set laststatus=2
 set ignorecase
 set smartcase
 
+" Rainbow Parentheses settings
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
