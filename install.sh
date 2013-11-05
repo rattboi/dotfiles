@@ -1,25 +1,21 @@
 #!/bin/bash 
 
 PWD=$(pwd)
+EASYFILES="oh-my-zsh zshrc vimrc vim tmux pentadactylrc Xdefaults"
 
-# get submodule shit set up
+# get submodules set up
 git submodule init
 git submodule update 
 
-# link zsh things
-ln -s $PWD/oh-my-zsh ~/.oh-my-zsh
-ln -s $PWD/zshrc ~/.zshrc
+# link easy things
+for dotfile in $EASYFILES
+do
+    ln -s $PWD/$dotfile ~/.$dotfile
+done
 
-# link vim things
-ln -s $PWD/vimrc ~/.vimrc
-ln -s $PWD/vim ~/.vim
-vim +BundleInstall +qall
-
-# link awesome things
+# link harder things
 mkdir -p ~/.config
 ln -s $PWD/awesome ~/.config/awesome
 
-# link all the other stuff
-ln -s $PWD/tmux.conf ~/.tmux.conf
-ln -s $PWD/pentadactylrc ~/.pentadactylrc
-ln -s $PWD/Xdefaults ~/.Xdefaults
+# initialize vim
+vim +BundleInstall +qall
