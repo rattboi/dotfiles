@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash 
 
 PWD=$(pwd)
 EASYFILES="oh-my-zsh zshrc vimrc vim tmux pentadactylrc Xdefaults"
