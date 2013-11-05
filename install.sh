@@ -1,23 +1,25 @@
-#!/bin/sh 
+#!/bin/bash 
+
+PWD=$(pwd)
 
 # get submodule shit set up
 git submodule init
 git submodule update 
 
 # link zsh things
-ln -s `pwd`/oh-my-zsh ~/.oh-my-zsh
-ln -s `pwd`/zshrc ~/.zshrc
+ln -s $PWD/oh-my-zsh ~/.oh-my-zsh
+ln -s $PWD/zshrc ~/.zshrc
 
 # link vim things
-ln -s `pwd`/vimrc ~/.vimrc
-ln -s `pwd`/vim ~/.vim
+ln -s $PWD/vimrc ~/.vimrc
+ln -s $PWD/vim ~/.vim
 vim +BundleInstall +qall
 
 # link awesome things
-mkdir ~/.config
-ln -s `pwd`/awesome ~/.config/awesome
+mkdir -p ~/.config
+ln -s $PWD/awesome ~/.config/awesome
 
 # link all the other stuff
-ln -s `pwd`/tmux.conf ~/.tmux.conf
-ln -s `pwd`/pentadactylrc ~/.pentadactylrc
-ln -s `pwd`/Xdefaults ~/.Xdefaults
+ln -s $PWD/tmux.conf ~/.tmux.conf
+ln -s $PWD/pentadactylrc ~/.pentadactylrc
+ln -s $PWD/Xdefaults ~/.Xdefaults
