@@ -27,6 +27,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
+Bundle 'ervandew/supertab'
 
 Bundle 'guns/vim-clojure-static'
 Bundle 'vim-scripts/verilog_systemverilog.vim'
@@ -79,3 +80,7 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" Custom Leader bindings
+let mapleader=","
+map <Leader>t :NERDTreeToggle<CR>
