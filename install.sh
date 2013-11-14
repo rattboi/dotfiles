@@ -1,7 +1,7 @@
 #!/usr/bin/env bash 
 
 PWD=$(pwd)
-EASYFILES="oh-my-zsh zshrc vimrc vim tmux pentadactylrc Xdefaults"
+EASYFILES="oh-my-zsh zshrc vimrc tmux.conf pentadactylrc Xdefaults"
 
 # get submodules set up
 git submodule init
@@ -16,6 +16,3 @@ done
 # link harder things
 mkdir -p ~/.config
 ln -s $PWD/awesome ~/.config/awesome
-
-# initialize vim
-vim +BundleInstall +qall
