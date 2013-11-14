@@ -1,7 +1,7 @@
 #!/usr/bin/env bash 
 
 PWD=$(pwd)
-EASYFILES="oh-my-zsh zshrc vimrc tmux.conf pentadactylrc Xdefaults"
+EASYFILES="oh-my-zsh zshrc vimrc pentadactylrc Xdefaults tmux.conf"
 
 # get submodules set up
 git submodule init
