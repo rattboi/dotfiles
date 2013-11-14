@@ -25,9 +25,13 @@ Bundle 'tpope/vim-classpath'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
 
 Bundle 'guns/vim-clojure-static'
 Bundle 'vim-scripts/verilog_systemverilog.vim'
+
+Bundle 'bling/vim-airline'
 
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
