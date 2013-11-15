@@ -33,6 +33,7 @@ Bundle 'guns/vim-clojure-static'
 Bundle 'vim-scripts/verilog_systemverilog.vim'
 
 Bundle 'bling/vim-airline'
+Bundle 'altercation/vim-colors-solarized'
 
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
@@ -92,3 +93,7 @@ map <Leader>gc :Gcommit<CR>
 map <Leader>gb :Gblame<CR>
 map <Leader>gl :Glog<CR>
 map <Leader>gp :Git push<CR>
+
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
