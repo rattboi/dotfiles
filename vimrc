@@ -95,5 +95,4 @@ map <Leader>gl :Glog<CR>
 map <Leader>gp :Git push<CR>
 
 set background=dark
-let g:solarized_termcolors=256
 colorscheme solarized
