@@ -33,7 +33,7 @@ Bundle 'guns/vim-clojure-static'
 Bundle 'vim-scripts/verilog_systemverilog.vim'
 
 Bundle 'bling/vim-airline'
-Bundle 'altercation/vim-colors-solarized'
+Bundle 'flazz/vim-colorschemes'
 
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
