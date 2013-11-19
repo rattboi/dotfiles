@@ -23,7 +23,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
 Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
+Bundle 'mhinz/vim-signify'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
@@ -97,3 +97,6 @@ map <Leader>gp :Git push<CR>
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
+
+set list
+set listchars=eol:¬,extends:»,tab:▸\ ,trail:›
