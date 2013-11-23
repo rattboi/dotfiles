@@ -100,3 +100,5 @@ colorscheme solarized
 
 set list
 set listchars=eol:¬,extends:»,tab:▸\ ,trail:›
+
+set mouse=a
