@@ -29,6 +29,12 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ervandew/supertab'
 
+" vim-orgmode + dependencies
+Bundle 'jceb/vim-orgmode'
+Bundle 'vim-scripts/utl.vim'
+Bundle 'mattn/calendar-vim'
+Bundle 'tpope/vim-speeddating'
+
 Bundle 'guns/vim-clojure-static'
 Bundle 'vim-scripts/verilog_systemverilog.vim'
 
@@ -84,6 +90,8 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " Custom Leader bindings
 let mapleader=","
+let maplocalleader="\\"
+
 " NERDTree
 map <Leader>t :NERDTreeToggle<CR>
 " Fugitive
@@ -94,9 +102,11 @@ map <Leader>gb :Gblame<CR>
 map <Leader>gl :Glog<CR>
 map <Leader>gp :Git push<CR>
 
+" vim-orgmode
+let g:org_agenda_files = ['~/org/*.org']
+
 set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme vividchalk
 
 set list
 set listchars=eol:¬,extends:»,tab:▸\ ,trail:›
