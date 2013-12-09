@@ -110,3 +110,5 @@ colorscheme vividchalk
 
 set list
 set listchars=eol:¬,extends:»,tab:▸\ ,trail:›
+
+set mouse=a
