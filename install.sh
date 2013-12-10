@@ -16,3 +16,6 @@ done
 # link harder things
 mkdir -p ~/.config
 ln -s $PWD/awesome ~/.config/awesome
+
+mkdir -p ~/.emacs.d
+ln -s $PWD/init.el ~/.emacs.d/init.el
