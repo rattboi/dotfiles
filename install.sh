@@ -1,7 +1,7 @@
 #!/usr/bin/env bash 
 
 PWD=$(pwd)
-EASYFILES="oh-my-zsh zshrc vimrc pentadactylrc Xdefaults tmux.conf"
+EASYFILES="oh-my-zsh zshrc vimrc pentadactylrc Xdefaults tmux.conf emacs.d"
 
 # get submodules set up
 git submodule init
@@ -16,6 +16,3 @@ done
 # link harder things
 mkdir -p ~/.config
 ln -s $PWD/awesome ~/.config/awesome
-
-mkdir -p ~/.emacs.d
-ln -s $PWD/init.el ~/.emacs.d/init.el
