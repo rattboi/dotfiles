@@ -1,0 +1,7 @@
+(:name evil-org
+       :website "https://github.com/edwtjo/evil-org-mode"
+       :description "Add shortcuts to Evil emulation layer org bindings"
+       :type github
+       :pkgname "edwtjo/evil-org-mode"
+       :features evil-org
+       :depends evil)

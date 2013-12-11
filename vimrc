@@ -47,6 +47,10 @@ filetype plugin indent on     " required!
 syntax on
 set hlsearch
 
+" Custom Leader bindings
+let mapleader=","
+let maplocalleader="\\"
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -76,14 +80,16 @@ set laststatus=2
 set ignorecase
 set smartcase
 
+set nolist
+set listchars=eol:¬,extends:»,tab:▸\ ,trail:›
+
+set mouse=a
+
 " Rainbow Parentheses settings
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
-" Custom Leader bindings
-let mapleader=","
 " NERDTree
 map <Leader>t :NERDTreeToggle<CR>
 " Fugitive
@@ -93,10 +99,7 @@ map <Leader>gc :Gcommit<CR>
 map <Leader>gb :Gblame<CR>
 map <Leader>gl :Glog<CR>
 map <Leader>gp :Git push<CR>
-
+" Colorscheme stuff
 set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme vividchalk
 
-set list
-set listchars=eol:¬,extends:»,tab:▸\ ,trail:›
