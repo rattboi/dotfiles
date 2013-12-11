@@ -184,6 +184,18 @@ vicious.register(rootfspct, vicious.widgets.fs, "${/ used_p}%", 97)
 -- Cache
 vicious.cache(vicious.widgets.net)
 
+f = io.popen("ip route | grep default")
+
+if f:read("*all"):find("default") then
+    f = io.popen("ip route | grep default | cut -d' ' -f 5")
+    netd = f:read("*line")
+    if not(netd) then
+      netd = "eth0"
+    end
+else
+    netd = "eth0"
+end
+
 -- Up graph
 upgraph = awful.widget.graph()
 upgraph:set_width(graphwidth):set_height(graphheight)
@@ -198,19 +210,19 @@ upgraph:set_color({
     { 0.25, beautiful.fg_center_widget },
     { 1, beautiful.fg_end_widget }
   }})
-vicious.register(upgraph, vicious.widgets.net, "${ens33 up_kb}")
+vicious.register(upgraph, vicious.widgets.net, "${" .. netd .. " up_kb}")
 
 -- TX
 txwidget = wibox.widget.textbox()
 vicious.register(txwidget, vicious.widgets.net,
-  "<span color='" .. beautiful.fg_em .. "'>up:</span>${ens33 tx_mb}MB", 19)
+  "<span color='" .. beautiful.fg_em .. "'>up:</span>${" .. netd .. " tx_mb}MB", 19)
 
 -- Up speed
 upwidget = wibox.widget.textbox()
 upwidget.fit = function(box,w,h)
   local w,h = wibox.widget.textbox.fit(box,w,h) return math.max(netwidth,w),h
 end
-vicious.register(upwidget, vicious.widgets.net, "${ens33 up_kb}", 2)
+vicious.register(upwidget, vicious.widgets.net, "${" .. netd .. " up_kb}", 2)
 
 -- Down graph
 downgraph = awful.widget.graph()
@@ -226,19 +238,19 @@ downgraph:set_color({
     { 0.25, beautiful.fg_center_widget },
     { 1, beautiful.fg_end_widget }
   }})
-vicious.register(downgraph, vicious.widgets.net, "${ens33 down_kb}")
+vicious.register(downgraph, vicious.widgets.net, "${" .. netd .. " down_kb}")
 
 -- RX
 rxwidget = wibox.widget.textbox()
 vicious.register(rxwidget, vicious.widgets.net,
-  "<span color='" .. beautiful.fg_em .. "'>down:</span>${ens33 rx_mb}MB", 17)
+  "<span color='" .. beautiful.fg_em .. "'>down:</span>${" .. netd .. " rx_mb}MB", 17)
 
 -- Down speed
 downwidget = wibox.widget.textbox()
 downwidget.fit = function(box,w,h)
   local w,h = wibox.widget.textbox.fit(box,w,h) return math.max(netwidth,w),h
 end
-vicious.register(downwidget, vicious.widgets.net, "${ens33 down_kb}", 2)
+vicious.register(downwidget, vicious.widgets.net, "${" .. netd .. " down_kb}", 2)
 -- }}}
 
 -- {{{ WEATHER

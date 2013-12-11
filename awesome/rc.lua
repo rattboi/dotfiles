@@ -335,17 +335,34 @@ globalkeys = awful.util.table.join(
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
               end),
-    -- Menubar
-    --awful.key({ modkey }, "p", function() menubar.show() end),
 
-    awful.key({ }, "XF86AudioMute",         function () awful.util.spawn( "mute_toggle") end),
-    awful.key({ }, "XF86AudioLowerVolume",  function () awful.util.spawn( "vol_down") end),
-    awful.key({ }, "XF86AudioRaiseVolume",  function () awful.util.spawn( "vol_up") end),
     awful.key({ }, "XF86AudioPlay",         function () awful.util.spawn( "mpc toggle") end),
     awful.key({ }, "XF86AudioNext",         function () awful.util.spawn( "mpc next") end),
     awful.key({ }, "XF86AudioPrev",         function () awful.util.spawn( "mpc prev") end),
     awful.key({ }, "XF86Tools",             function () awful.util.spawn( "mpc random") end)
 )
+
+audiokeys_pulse = awful.util.table.join(
+    awful.key({ }, "XF86AudioMute",         function () awful.util.spawn( "mute_toggle") end),
+    awful.key({ }, "XF86AudioLowerVolume",  function () awful.util.spawn( "vol_down") end),
+    awful.key({ }, "XF86AudioRaiseVolume",  function () awful.util.spawn( "vol_up") end)
+)
+
+audiokeys_amixer = awful.util.table.join(
+    awful.key({ }, "XF86AudioMute",         function () awful.util.spawn( "amixer -q set Master toggle") end),
+    awful.key({ }, "XF86AudioLowerVolume",  function () awful.util.spawn( "amixer -q set Master 2- unmute") end),
+    awful.key({ }, "XF86AudioRaiseVolume",  function () awful.util.spawn( "amixer -q set Master 2+ unmute") end)
+)
+
+pulse_f = io.popen("pacmd info")
+
+if (io.popen("pacmd info"):read("*line")) then
+    audiokeys = audiokeys_pulse
+else
+    audiokeys = audiokeys_amixer
+end
+
+globalkeys = awful.util.table.join(globalkeys, audiokeys)
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),

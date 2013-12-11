@@ -24,9 +24,15 @@
 
 (el-get 'sync my-el-get-packages)
 
+(setq evil-default-cursor t)
+(set-cursor-color "#FFFFFF")
+
 (require 'evil-leader)
 (require 'evil)
 (evil-mode 1)
 (require 'evil-org)
-(setq evil-default-cursor t)
-(set-cursor-color "#FFFFFF")
+
+;; disable some of the crap on startup
+(setq inhibit-startup-message t)
+(tool-bar-mode -1)
+
