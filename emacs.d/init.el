@@ -13,15 +13,9 @@
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 
 ;; Install packages
-(add-to-list 'el-get-sources
-  '(:name evil          :type elpa   :pkgname "evil")
-  '(:name evil-leader   :type elpa   :pkgname "evil-leader")
-  '(:name evil-org      
-     :type git
-     :url "git://github.com/edwtjo/evil-org-mode"
-     :load "evil-org.el"
-     :compile ("evil-org.el")
-     :features evil-org))
+ (add-to-list 'el-get-sources
+   '(:name evil          :type elpa   :pkgname "evil")
+   '(:name evil-leader   :type elpa   :pkgname "evil-leader"))
 
 (setq my-el-get-packages  
     (append  
@@ -34,3 +28,5 @@
 (require 'evil)
 (evil-mode 1)
 (require 'evil-org)
+(setq evil-default-cursor t)
+(set-cursor-color "#FFFFFF")
