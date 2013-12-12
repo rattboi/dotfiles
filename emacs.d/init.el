@@ -27,12 +27,16 @@
 (setq evil-default-cursor t)
 (set-cursor-color "#FFFFFF")
 
-(require 'evil-leader)
-(require 'evil)
-(evil-mode 1)
-(require 'evil-org)
-
 ;; disable some of the crap on startup
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
 
+(require 'evil-leader)
+(require 'evil)
+(require 'evil-org)
+
+;; enable evil-mode
+(evil-mode 1)
+
+;; rebind tab for org-mode to fix console emacs bug
+(evil-define-key 'normal org-mode-map (kbd "TAB") #'org-cycle)
