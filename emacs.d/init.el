@@ -29,7 +29,8 @@
 
 ;; disable some of the crap on startup
 (setq inhibit-startup-message t)
-(tool-bar-mode -1)
+(if (display-graphic-p)
+    (tool-bar-mode -1))
 
 (require 'evil-leader)
 (require 'evil)
