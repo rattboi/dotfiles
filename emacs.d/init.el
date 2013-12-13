@@ -39,5 +39,8 @@
 ;; enable evil-mode
 (evil-mode 1)
 
+;; org-mode
+(setq org-todo-keywords
+      '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE")))
 ;; rebind tab for org-mode to fix console emacs bug
 (evil-define-key 'normal org-mode-map (kbd "TAB") #'org-cycle)
