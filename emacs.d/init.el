@@ -36,3 +36,6 @@
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
 
+;; org-mode
+(setq org-todo-keywords
+      '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE")))
