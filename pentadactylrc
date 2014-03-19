@@ -14,7 +14,7 @@ set titlestring=
 
 set passkeys=
 
-set passkeys+='^https?://cloud\.feedly\.com/':jknpvrsoxmVMJ?/,ga,gm,gl
+set passkeys+='^https?://feedly\.com/':jknpvrsoxmVMJ?/,ga,gm,gl
 set passkeys+='mail\.google\.com/(mail|a)/':jkx#co,gi,ga
 
 " might break other stuff. this is for subsonic
