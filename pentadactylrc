@@ -1,13 +1,15 @@
-"1.0b6 (created: 2011/03/09 09:25:18)
+"hg7065
 
 loadplugins '\.(js|penta)$'
 group user
-map -modes=n,v J -builtin <C-d>
-map -modes=n,v K -builtin <C-u>
-map -modes=n,v gs :tabnew about:sync-tabs<CR>
+map -count -modes=n,v J -builtin <count><C-d>
+map -count -modes=n,v K -builtin <count><C-u>
+map -count -modes=n,v gs <count>:tabnew<Space>about:sync-tabs<Return>
 set autocomplete=
+set defsearch=duckduckgo
 set guioptions=sn
 set newtab=help,prefs
+set passkeys='^https?://cloud\.feedly\.com/':jknpvrsoxmVMJ?/,ga,gm,gl,'mail\.google\.com/(mail|a)/':jkx#co,gi,ga,/mini/:<Space>
 set showmode=!normal,!ex,base
 set insertmode
 set titlestring=
