@@ -32,6 +32,7 @@ Bundle 'ervandew/supertab'
 
 Bundle 'guns/vim-clojure-static'
 Bundle 'vim-scripts/verilog_systemverilog.vim'
+Bundle 'fatih/vim-go'
 
 Bundle 'bling/vim-airline'
 Bundle 'flazz/vim-colorschemes'
@@ -86,11 +87,17 @@ set listchars=eol:¬,extends:»,tab:▸\ ,trail:›
 
 set mouse=a
 
+" vim-go settings
+au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
+au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
+au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
+
 " Rainbow Parentheses settings
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+let g:rbpt_max = 8
 " NERDTree
 map <Leader>t :NERDTreeToggle<CR>
 " Fugitive
