@@ -38,5 +38,6 @@ export EDITOR=vim
 export TERM=xterm-256color
 
 export PATH="/home/rattboi/.bin:$PATH";
+export GOPATH=$HOME/go
 
 [[ -f ~/.zshrc.custom ]] && source ~/.zshrc.custom
