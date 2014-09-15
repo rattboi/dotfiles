@@ -32,6 +32,7 @@ if VimplugInstalled == 1
     Plug 'tpope/vim-fireplace'
     Plug 'tpope/vim-classpath'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-surround'
     Plug 'gregsexton/gitv'
     Plug 'mhinz/vim-signify'
     Plug 'scrooloose/syntastic'
