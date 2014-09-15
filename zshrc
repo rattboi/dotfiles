@@ -41,3 +41,7 @@ export PATH="/home/rattboi/.bin:$PATH";
 export GOPATH=$HOME/go
 
 [[ -f ~/.zshrc.custom ]] && source ~/.zshrc.custom
+
+# Check sync status
+dotfiles=$( dirname `readlink ~/.zshrc` )
+. $dotfiles/update.sh
