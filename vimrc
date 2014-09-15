@@ -1,17 +1,14 @@
 let UseVimplug=1
 
-let VimplugInstalled=0
 let PluginsInstalled=0
 if UseVimplug == 1
     " Bootstrap plugin manager
-    let VimplugInstalled=1
     let vplug=expand('~/.vim/autoload/plug.vim')
     if !filereadable(vplug)
         echo "Installing vim-plug.."
         echo ""
         silent !mkdir -p ~/.vim/autoload
-        silent !git clone https://github.com/junegunn/vim-plug ~/.vim/autoload
-        let VimplugInstalled=0
+        silent !git clone --depth=1 https://github.com/junegunn/vim-plug ~/.vim/autoload
     endif
     " Detect if plugins have been installed
     let PluginsInstalled=1
@@ -22,7 +19,7 @@ if UseVimplug == 1
     endif
 endif
 
-if VimplugInstalled == 1
+if UseVimplug == 1
     call plug#begin('~/.vim/plugged')
 
     " My Plugins here:
@@ -50,10 +47,11 @@ if VimplugInstalled == 1
     call plug#end()
 endif
 
-if UseVimplug == 1 && VimplugInstalled == 0
-    echo "Vimplug installed. Please restart vim" 
-    echo ""
+if UseVimplug ==1 && PluginsInstalled == 0
+    :PlugInstall
+    let PluginsInstalled=1
 endif
+
 " Done bootstrapping plugin manager
 
 " Global settings (regardless of plugins)
@@ -100,7 +98,7 @@ set listchars=eol:¬,extends:»,tab:▸\ ,trail:›
 set mouse=a
 
 " Plugin settings
-if VimplugInstalled == 1 && PluginsInstalled == 1
+if UseVimplug == 1 && PluginsInstalled == 1
     " Add git status to statusline
     set statusline=%F%m%r%h%w\ 
     set statusline+=%=
@@ -131,8 +129,4 @@ if VimplugInstalled == 1 && PluginsInstalled == 1
     " Colorscheme stuff
     set background=dark
     colorscheme vividchalk
-endif
-
-if VimplugInstalled==1 && PluginsInstalled == 0
-    :PlugInstall
 endif
