@@ -1,50 +1,62 @@
-" Setting up Vundle - the vim plugin bundler
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-    echo "Installing Vundle.."
-    echo ""
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    let iCanHazVundle=0
+let UseVimplug=1
+
+let VimplugInstalled=0
+let PluginsInstalled=0
+if UseVimplug == 1
+    " Bootstrap plugin manager
+    let VimplugInstalled=1
+    let vplug=expand('~/.vim/autoload/plug.vim')
+    if !filereadable(vplug)
+        echo "Installing vim-plug.."
+        echo ""
+        silent !mkdir -p ~/.vim/autoload
+        silent !git clone https://github.com/junegunn/vim-plug ~/.vim/autoload
+        let VimplugInstalled=0
+    endif
+    " Detect if plugins have been installed
+    let PluginsInstalled=1
+    let PluginsDir=expand('~/.vim/plugged')
+    if !isdirectory(PluginsDir)
+        echo "Installing plugins.."
+        let PluginsInstalled=0
+    endif
 endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if VimplugInstalled == 1
+    call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
+    " My Plugins here:
+    "
+    Plug 'vim-scripts/paredit.vim'
+    Plug 'kien/rainbow_parentheses.vim'
+    Plug 'tpope/vim-fireplace'
+    Plug 'tpope/vim-classpath'
+    Plug 'tpope/vim-fugitive'
+    Plug 'gregsexton/gitv'
+    Plug 'mhinz/vim-signify'
+    Plug 'scrooloose/syntastic'
+    Plug 'scrooloose/nerdtree'
+    Plug 'kien/ctrlp.vim'
+    Plug 'ervandew/supertab'
 
-" My Bundles here:
-"
-Bundle 'vim-scripts/paredit.vim'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
-Bundle 'tpope/vim-fugitive'
-Bundle 'gregsexton/gitv'
-Bundle 'mhinz/vim-signify'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'ervandew/supertab'
+    Plug 'guns/vim-clojure-static'
+    Plug 'vim-scripts/verilog_systemverilog.vim'
+    Plug 'fatih/vim-go'
 
-Bundle 'guns/vim-clojure-static'
-Bundle 'vim-scripts/verilog_systemverilog.vim'
-Bundle 'fatih/vim-go'
+    Plug 'bling/vim-airline'
+    Plug 'flazz/vim-colorschemes'
 
-Bundle 'bling/vim-airline'
-Bundle 'flazz/vim-colorschemes'
-
-if iCanHazVundle == 0
-    echo "Installing Bundles, please ignore key map error messages"
-    echo ""
-    :BundleInstall
+    call plug#end()
 endif
-" Setting up Vundle - the vim plugin bundler end
 
-filetype plugin indent on     " required!
+if UseVimplug == 1 && VimplugInstalled == 0
+    echo "Vimplug installed. Please restart vim" 
+    echo ""
+endif
+" Done bootstrapping plugin manager
+
+" Global settings (regardless of plugins)
+filetype plugin indent on
 
 syntax on
 set hlsearch
@@ -74,7 +86,6 @@ set smartindent
 
 set statusline=%F%m%r%h%w\ 
 set statusline+=%=
-set statusline+=%{fugitive#statusline()}
 set statusline+=\ [line\ %l\/%L]
 set laststatus=2
 
@@ -87,27 +98,40 @@ set listchars=eol:¬,extends:»,tab:▸\ ,trail:›
 
 set mouse=a
 
-" vim-go settings
-au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
-au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
-au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
+" Plugin settings
+if VimplugInstalled == 1 && PluginsInstalled == 1
+    " Add git status to statusline
+    set statusline=%F%m%r%h%w\ 
+    set statusline+=%=
+    set statusline+=%{fugitive#statusline()}
+    set statusline+=\ [line\ %l\/%L]
+    set laststatus=2
 
-" Rainbow Parentheses settings
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-let g:rbpt_max = 8
-" NERDTree
-map <Leader>t :NERDTreeToggle<CR>
-" Fugitive
-map <Leader>gs :Gstatus<CR>
-map <Leader>gd :Gdiff<CR>
-map <Leader>gc :Gcommit<CR>
-map <Leader>gb :Gblame<CR>
-map <Leader>gl :Glog<CR>
-map <Leader>gp :Git push<CR>
-" Colorscheme stuff
-set background=dark
-colorscheme vividchalk
+    " vim-go settings
+    au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
+    au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
+    au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
 
+    " Rainbow Parentheses settings
+    au VimEnter * RainbowParenthesesToggle
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
+    let g:rbpt_max = 8
+    " NERDTree
+    map <Leader>t :NERDTreeToggle<CR>
+    " Fugitive
+    map <Leader>gs :Gstatus<CR>
+    map <Leader>gd :Gdiff<CR>
+    map <Leader>gc :Gcommit<CR>
+    map <Leader>gb :Gblame<CR>
+    map <Leader>gl :Glog<CR>
+    map <Leader>gp :Git push<CR>
+    " Colorscheme stuff
+    set background=dark
+    colorscheme vividchalk
+endif
+
+if VimplugInstalled==1 && PluginsInstalled == 0
+    :PlugInstall
+endif
