@@ -11,7 +11,7 @@ else
     if [[ -n $(git log HEAD..origin/master --oneline) ]]
     then
         git pull -u origin master -q
-        . ./setup.sh
+#        . ./setup.sh
     else
         echo "Up to date!"
     fi
