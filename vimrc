@@ -30,6 +30,7 @@ if UseVimplug == 1
     Plug 'tpope/vim-classpath'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-repeat'
     Plug 'gregsexton/gitv'
     Plug 'mhinz/vim-signify'
     Plug 'scrooloose/syntastic'
@@ -40,6 +41,8 @@ if UseVimplug == 1
     Plug 'guns/vim-clojure-static'
     Plug 'vim-scripts/verilog_systemverilog.vim'
     Plug 'fatih/vim-go'
+    Plug 'vim-scripts/groovy.vim'
+    Plug 'tfnico/vim-gradle'
 
     Plug 'bling/vim-airline'
     Plug 'flazz/vim-colorschemes'
