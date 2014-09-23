@@ -6,7 +6,7 @@ then
     echo "your repository in `pwd`:"
     echo `git ls-files -m`
 else
-    echo "Checking for updates..."
+    echo "Checking for dotfiles updates..."
     git fetch origin
     if [[ -n $(git log HEAD..origin/master --oneline) ]]
     then
