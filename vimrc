@@ -37,6 +37,7 @@ if UseVimplug == 1
     Plug 'scrooloose/nerdtree'
     Plug 'kien/ctrlp.vim'
     Plug 'ervandew/supertab'
+    Plug 'Shougo/unite.vim'
 
     Plug 'guns/vim-clojure-static'
     Plug 'vim-scripts/verilog_systemverilog.vim'
@@ -132,4 +133,7 @@ if UseVimplug == 1 && PluginsInstalled == 1
     " Colorscheme stuff
     set background=dark
     colorscheme vividchalk
+
+    " Make syntastic shut up about asm files
+    let g:loaded_syntastic_asm_gcc_checker = 1
 endif
