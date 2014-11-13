@@ -24,10 +24,10 @@ if UseVimplug == 1
 
     " My Plugins here:
     "
-    Plug 'vim-scripts/paredit.vim'
+    Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
     Plug 'kien/rainbow_parentheses.vim'
-    Plug 'tpope/vim-fireplace'
-    Plug 'tpope/vim-classpath'
+    Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+    Plug 'tpope/vim-classpath', { 'for': 'clojure' }
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
@@ -39,7 +39,7 @@ if UseVimplug == 1
     Plug 'ervandew/supertab'
     Plug 'Shougo/unite.vim'
 
-    Plug 'guns/vim-clojure-static'
+    Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
     Plug 'vim-scripts/verilog_systemverilog.vim'
     Plug 'fatih/vim-go'
     Plug 'vim-scripts/groovy.vim'
