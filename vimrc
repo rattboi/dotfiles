@@ -37,7 +37,7 @@ if UseVimplug == 1
     Plug 'scrooloose/nerdtree'
     Plug 'kien/ctrlp.vim'
     Plug 'ervandew/supertab'
-    Plug 'Shougo/unite.vim'
+    " Plug 'Shougo/unite.vim'
 
     Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
     Plug 'vim-scripts/verilog_systemverilog.vim'
