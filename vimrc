@@ -37,6 +37,8 @@ if UseVimplug == 1
     Plug 'scrooloose/nerdtree'
     Plug 'kien/ctrlp.vim'
     Plug 'ervandew/supertab'
+    Plug 'mattn/webapi-vim'
+    Plug 'mattn/gist-vim'
     " Plug 'Shougo/unite.vim'
 
     Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
@@ -44,7 +46,13 @@ if UseVimplug == 1
     Plug 'fatih/vim-go'
     Plug 'vim-scripts/groovy.vim'
     Plug 'tfnico/vim-gradle'
-
+    Plug 'mileszs/ack.vim' 
+    Plug 'vim-ruby/vim-ruby'
+    Plug 'tpope/vim-rails'
+    Plug 'tpope/vim-bundler'
+    Plug 'tpope/vim-endwise'
+    Plug 'mileszs/apidock.vim'
+  
     Plug 'bling/vim-airline'
     Plug 'flazz/vim-colorschemes'
 
@@ -81,9 +89,9 @@ set ruler           " show the cursor position all the time
 set showcmd         " display incomplete commands
 set incsearch       " do incremental searching
 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set smartindent
 
@@ -122,7 +130,7 @@ if UseVimplug == 1 && PluginsInstalled == 1
     au Syntax * RainbowParenthesesLoadBraces
     let g:rbpt_max = 8
     " NERDTree
-    map <Leader>t :NERDTreeToggle<CR>
+    map <Leader>n :NERDTreeToggle<CR>
     " Fugitive
     map <Leader>gs :Gstatus<CR>
     map <Leader>gd :Gdiff<CR>
@@ -132,8 +140,12 @@ if UseVimplug == 1 && PluginsInstalled == 1
     map <Leader>gp :Git push<CR>
     " Colorscheme stuff
     set background=dark
-    colorscheme vividchalk
+    colorscheme Chasing_Logic
 
     " Make syntastic shut up about asm files
     let g:loaded_syntastic_asm_gcc_checker = 1
+
+    " Set up ruby_path to use system ruby, so that it doesn't use jruby, which
+    " kills startup time
+    let g:ruby_path='/usr/bin/ruby'
 endif
