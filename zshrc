@@ -29,13 +29,13 @@ ZSH_THEME="flazz"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode)
+plugins=(git vi-mode lxc ssh-agent docker)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export EDITOR=vim
-export TERM=xterm-256color
+# export TERM=xterm-256color
 
 export PATH="/home/rattboi/.bin:$PATH";
 
