@@ -1,4 +1,4 @@
-"hg7065
+"1.1
 
 loadplugins '\.(js|penta)$'
 group user
@@ -6,20 +6,10 @@ map -count -modes=n,v J -builtin <count><C-d>
 map -count -modes=n,v K -builtin <count><C-u>
 map -count -modes=n,v gs <count>:tabnew<Space>about:sync-tabs<Return>
 set autocomplete=
-set defsearch=duckduckgo
 set guioptions=sn
 set newtab=help,prefs
-set passkeys='^https?://cloud\.feedly\.com/':jknpvrsoxmVMJ?/,ga,gm,gl,'mail\.google\.com/(mail|a)/':jkx#co,gi,ga,/mini/:<Space>
+set passkeys='feedly\.com/':jknpvrsoxmVMJ?/,ga,gm,gl,'mail\.google\.com/(mail|a)/':jkx#co,gi,ga,/mini/:<Space>
 set showmode=!normal,!ex,base
-set insertmode
-set titlestring=
-
-set passkeys=
-
-set passkeys+='^https?://feedly\.com/':jknpvrsoxmVMJ?/,ga,gm,gl
-set passkeys+='mail\.google\.com/(mail|a)/':jkx#co,gi,ga
-
-" might break other stuff. this is for subsonic
-set passkeys+='/mini/':<Space>
+set titlestring=''
 
 " vim: set ft=pentadactyl:

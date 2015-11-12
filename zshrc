@@ -29,7 +29,7 @@ ZSH_THEME="flazz"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode lxc ssh-agent docker)
+plugins=(git vi-mode lxc ssh-agent docker rails ruby)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -38,5 +38,10 @@ export EDITOR=vim
 # export TERM=xterm-256color
 
 export PATH="/home/rattboi/.bin:$PATH";
+export GOPATH=$HOME/go
 
 [[ -f ~/.zshrc.custom ]] && source ~/.zshrc.custom
+
+# Check sync status
+dotfiles=$( dirname `readlink ~/.zshrc` )
+. $dotfiles/update.sh
