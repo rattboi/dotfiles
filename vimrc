@@ -23,11 +23,7 @@ if UseVimplug == 1
     call plug#begin('~/.vim/plugged')
 
     " My Plugins here:
-    "
-    Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
     Plug 'kien/rainbow_parentheses.vim'
-    Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-    Plug 'tpope/vim-classpath', { 'for': 'clojure' }
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
@@ -39,9 +35,14 @@ if UseVimplug == 1
     Plug 'ervandew/supertab'
     Plug 'mattn/webapi-vim'
     Plug 'mattn/gist-vim'
-    " Plug 'Shougo/unite.vim'
+    Plug 'terryma/vim-multiple-cursors'
 
+    Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
+    Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+    Plug 'tpope/vim-classpath', { 'for': 'clojure' }
+    Plug 'tpope/vim-salve', { 'for': 'clojure' }
     Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+    Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
     Plug 'vim-scripts/verilog_systemverilog.vim'
     Plug 'fatih/vim-go'
     Plug 'vim-scripts/groovy.vim'
@@ -148,4 +149,8 @@ if UseVimplug == 1 && PluginsInstalled == 1
     " Set up ruby_path to use system ruby, so that it doesn't use jruby, which
     " kills startup time
     let g:ruby_path='/usr/bin/ruby'
+
+    " This macro increments every number on a line by one. Very useful for
+    " deploy templates
+    let @i='yypV:s/\d\+/\=(submatch(0)+1)/ga'
 endif
