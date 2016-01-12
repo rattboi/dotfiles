@@ -35,7 +35,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export EDITOR=vim
-export TERM=xterm-256color
+# export TERM=xterm-256color
 
 export PATH="/home/rattboi/.bin:$PATH";
 export GOPATH=$HOME/go
