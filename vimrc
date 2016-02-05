@@ -36,6 +36,7 @@ if UseVimplug == 1
     Plug 'mattn/webapi-vim'
     Plug 'mattn/gist-vim'
     Plug 'terryma/vim-multiple-cursors'
+    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
     Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
     Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -53,6 +54,7 @@ if UseVimplug == 1
     Plug 'tpope/vim-bundler'
     Plug 'tpope/vim-endwise'
     Plug 'mileszs/apidock.vim'
+    Plug 'voxpupuli/vim-puppet'
   
     Plug 'bling/vim-airline'
     Plug 'flazz/vim-colorschemes'
