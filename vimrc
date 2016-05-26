@@ -27,7 +27,7 @@ if UseVimplug == 1
     Plug 'vim-scripts/paredit.vim'
     Plug 'kien/rainbow_parentheses.vim'
     Plug 'tpope/vim-fireplace'
-    Plug 'tpope/vim-classpath'
+    " Plug 'tpope/vim-classpath'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'

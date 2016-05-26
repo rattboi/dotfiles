@@ -343,9 +343,9 @@ globalkeys = awful.util.table.join(
 )
 
 audiokeys_pulse = awful.util.table.join(
-    awful.key({ }, "XF86AudioMute",         function () awful.util.spawn( "mute_toggle") end),
-    awful.key({ }, "XF86AudioLowerVolume",  function () awful.util.spawn( "vol_down") end),
-    awful.key({ }, "XF86AudioRaiseVolume",  function () awful.util.spawn( "vol_up") end)
+    awful.key({ }, "XF86AudioMute",         function () awful.util.spawn( "pulseaudio-ctl mute") end),
+    awful.key({ }, "XF86AudioLowerVolume",  function () awful.util.spawn( "pulseaudio-ctl down") end),
+    awful.key({ }, "XF86AudioRaiseVolume",  function () awful.util.spawn( "pulseaudio-ctl up") end)
 )
 
 audiokeys_amixer = awful.util.table.join(
