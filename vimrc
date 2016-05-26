@@ -23,11 +23,7 @@ if UseVimplug == 1
     call plug#begin('~/.vim/plugged')
 
     " My Plugins here:
-    "
-    Plug 'vim-scripts/paredit.vim'
     Plug 'kien/rainbow_parentheses.vim'
-    Plug 'tpope/vim-fireplace'
-    " Plug 'tpope/vim-classpath'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
@@ -37,13 +33,29 @@ if UseVimplug == 1
     Plug 'scrooloose/nerdtree'
     Plug 'kien/ctrlp.vim'
     Plug 'ervandew/supertab'
+    Plug 'mattn/webapi-vim'
+    Plug 'mattn/gist-vim'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-    Plug 'guns/vim-clojure-static'
+    Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
+    Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+    Plug 'tpope/vim-classpath', { 'for': 'clojure' }
+    Plug 'tpope/vim-salve', { 'for': 'clojure' }
+    Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+    Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
     Plug 'vim-scripts/verilog_systemverilog.vim'
     Plug 'fatih/vim-go'
     Plug 'vim-scripts/groovy.vim'
     Plug 'tfnico/vim-gradle'
-
+    Plug 'mileszs/ack.vim' 
+    Plug 'vim-ruby/vim-ruby'
+    Plug 'tpope/vim-rails'
+    Plug 'tpope/vim-bundler'
+    Plug 'tpope/vim-endwise'
+    Plug 'mileszs/apidock.vim'
+    Plug 'voxpupuli/vim-puppet'
+  
     Plug 'bling/vim-airline'
     Plug 'flazz/vim-colorschemes'
 
@@ -80,9 +92,9 @@ set ruler           " show the cursor position all the time
 set showcmd         " display incomplete commands
 set incsearch       " do incremental searching
 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set smartindent
 
@@ -121,7 +133,7 @@ if UseVimplug == 1 && PluginsInstalled == 1
     au Syntax * RainbowParenthesesLoadBraces
     let g:rbpt_max = 8
     " NERDTree
-    map <Leader>t :NERDTreeToggle<CR>
+    map <Leader>n :NERDTreeToggle<CR>
     " Fugitive
     map <Leader>gs :Gstatus<CR>
     map <Leader>gd :Gdiff<CR>
@@ -131,5 +143,16 @@ if UseVimplug == 1 && PluginsInstalled == 1
     map <Leader>gp :Git push<CR>
     " Colorscheme stuff
     set background=dark
-    colorscheme vividchalk
+    colorscheme Chasing_Logic
+
+    " Make syntastic shut up about asm files
+    let g:loaded_syntastic_asm_gcc_checker = 1
+
+    " Set up ruby_path to use system ruby, so that it doesn't use jruby, which
+    " kills startup time
+    let g:ruby_path='/usr/bin/ruby'
+
+    " This macro increments every number on a line by one. Very useful for
+    " deploy templates
+    let @i='yypV:s/\d\+/\=(submatch(0)+1)/ga'
 endif
