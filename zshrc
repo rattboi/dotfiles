@@ -37,11 +37,11 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR=vim
 # export TERM=xterm-256color
 
-export PATH="/home/rattboi/.bin:$PATH";
+export PATH="$HOME/.bin:$PATH";
 export GOPATH=$HOME/go
-
-[[ -f ~/.zshrc.custom ]] && source ~/.zshrc.custom
 
 # Check sync status
 dotfiles=$( dirname `readlink ~/.zshrc` )
 . $dotfiles/update.sh
+
+[[ -f ~/.zshrc.custom ]] && source ~/.zshrc.custom
