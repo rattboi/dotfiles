@@ -29,7 +29,7 @@ ZSH_THEME="flazz"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode docker ruby)
+plugins=(git vi-mode docker ruby virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -44,4 +44,7 @@ export GOPATH=$HOME/go
 dotfiles=$( dirname `readlink ~/.zshrc` )
 . $dotfiles/update.sh
 
+[[ -f /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found
+
 [[ -f ~/.zshrc.custom ]] && source ~/.zshrc.custom
+
