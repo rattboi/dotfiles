@@ -1,0 +1,48 @@
+#!/bin/sh
+# Script to configure X, start common apps, and start xmonad.
+# Author: Vic Fryzel
+# http://github.com/vicfryzel/xmonad-config
+
+
+# Configure PATH so that we can access our scripts below
+#PATH=$PATH:~/.cabal/bin:~/.xmonad/bin
+
+# Configure X
+xsetroot -cursor_name left_ptr &
+xrdb -merge ~/.Xdefaults &
+setxkbmap -option caps:escape &
+
+# Start a window compositor. This ensures Google Chrome paints correctly.
+# xcompmgr -n &
+
+# Start the system tray
+stalonetray &
+
+if [ -x /usr/bin/nm-applet ] ; then
+  nm-applet --sm-disable &
+fi
+
+if [ -x /usr/bin/redshift-gtk ] ; then
+  redshift-gtk &
+fi
+
+# Touchpad settings
+synclient MaxTapTime=0 # disable tap-to-click (180 default)
+synclient HorizTwoFingerScroll=1 # enable side-scrolling (0 default)
+synclient PalmDetect=1 # enable palm detection (0 default)
+
+# Start two terminals
+urxvt &
+
+# Start a browser
+google-chrome &
+
+# Start screensaver
+gnome-screensaver &
+
+# Start sound server
+pulseaudio --start --log-target=syslog &
+
+feh --bg-scale $(find /usr/share/backgrounds | egrep 'jpg|png' | shuf -n 1)
+
+#gnome-session &

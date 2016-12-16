@@ -4,11 +4,12 @@ URxvt*scrollstyle: plain
 URxvt*foreground: white
 URxvt*background: black
 URxvt*termName: xterm-256color
-URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=13
-URxvt*boldFont: xft:Bitstream Vera Sans Mono:style=Bold:pixelsize=13
+URxvt*iconFile: /usr/share/icons/gnome/256x256/apps/utilities-terminal.png
+URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=15
+URxvt*boldFont: xft:Bitstream Vera Sans Mono:style=Bold:pixelsize=15
 URxvt*scrollBar_right: true
 URxvt.perl-ext-common: default,matcher,clipboard,keyboard-select,url-select,font-size
-URxvt.url-select.launcher: /usr/bin/chromium-browser
+URxvt.url-select.launcher: /usr/bin/google-chrome
 URxvt.matcher.button: 1
 URxvt.keysym.M-v: perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped

@@ -44,6 +44,7 @@ if UseVimplug == 1
     Plug 'tpope/vim-salve', { 'for': 'clojure' }
     Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
     Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+    Plug 'chase/vim-ansible-yaml'
     Plug 'vim-scripts/verilog_systemverilog.vim'
     Plug 'fatih/vim-go'
     Plug 'vim-scripts/groovy.vim'
@@ -147,6 +148,7 @@ if UseVimplug == 1 && PluginsInstalled == 1
 
     " Make syntastic shut up about asm files
     let g:loaded_syntastic_asm_gcc_checker = 1
+    let g:syntastic_python_python_exec = '/usr/bin/python3'
 
     " Set up ruby_path to use system ruby, so that it doesn't use jruby, which
     " kills startup time
