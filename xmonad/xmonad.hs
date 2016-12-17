@@ -232,7 +232,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
     -- Programs
     , ((0,                          xK_Print    ), spawn "gnome-screenshot -i")
-    , ((modMask,                    xK_o        ), spawn "chrome")
+    , ((modMask,                    xK_o        ), spawn "browser")
     , ((modMask,                    xK_m        ), spawn "nautilus --no-desktop --browser")
 
     -- Brightness
