@@ -182,7 +182,7 @@ mXPConfig =
                     , height                = 14
                     , historyFilter         = deleteConsecutive
                     }
- 
+
 -- Run or Raise Menu
 largeXPConfig :: XPConfig
 largeXPConfig = mXPConfig
@@ -197,16 +197,8 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,                    xK_F2       ), spawn "gmrun")
     , ((modMask .|. shiftMask,      xK_c        ), kill)
     , ((modMask .|. shiftMask,      xK_l        ), spawn "slock")
-    -- Programs
-    , ((0,                          xK_Print    ), spawn "gnome-screenshot -i")
-    , ((modMask,                    xK_o        ), spawn "chrome")
-    , ((modMask,                    xK_m        ), spawn "nautilus --no-desktop --browser")
-    -- Media Keys
-    , ((0,                          0x1008ff12  ), spawn "amixer -q sset Master toggle")        -- XF86AudioMute
-    , ((0,                          0x1008ff11  ), spawn "amixer -q sset Master 5%-")   -- XF86AudioLowerVolume
-    , ((0,                          0x1008ff13  ), spawn "amixer -q sset Master 5%+")   -- XF86AudioRaiseVolume
 
-    -- layouts
+    -- Layouts
     , ((modMask,                    xK_space    ), sendMessage NextLayout)
     , ((modMask .|. shiftMask,      xK_space    ), setLayout $ XMonad.layoutHook conf)          -- reset layout on current desktop to default
     , ((modMask,                    xK_b        ), sendMessage ToggleStruts)
@@ -228,16 +220,29 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,                    xK_comma    ), sendMessage (IncMasterN 1))
     , ((modMask,                    xK_period   ), sendMessage (IncMasterN (-1)))
 
+    -- Workspaces
+    , ((modMask .|. controlMask,    xK_Right    ), nextWS)
+    , ((modMask .|. shiftMask,      xK_Right    ), shiftToNext)
+    , ((modMask .|. controlMask,    xK_Left     ), prevWS)
+    , ((modMask .|. shiftMask,      xK_Left     ), shiftToPrev)
 
-    -- workspaces
-    , ((modMask .|. controlMask,   xK_Right     ), nextWS)
-    , ((modMask .|. shiftMask,     xK_Right     ), shiftToNext)
-    , ((modMask .|. controlMask,   xK_Left      ), prevWS)
-    , ((modMask .|. shiftMask,     xK_Left      ), shiftToPrev)
-    
-    -- quit, or restart
+    -- Quit, or Restart
     , ((modMask .|. shiftMask,      xK_q        ), io (exitWith ExitSuccess))
     , ((modMask,                    xK_q        ), spawn "xmonad --recompile && xmonad --restart")
+
+    -- Programs
+    , ((0,                          xK_Print    ), spawn "gnome-screenshot -i")
+    , ((modMask,                    xK_o        ), spawn "chrome")
+    , ((modMask,                    xK_m        ), spawn "nautilus --no-desktop --browser")
+
+    -- Brightness
+    , ((modMask .|. shiftMask,      xK_Up       ), spawn "xbacklight -inc 10")
+    , ((modMask .|. shiftMask,      xK_Down     ), spawn "xbacklight -dec 10")
+
+    -- Media Keys
+    , ((0,                          0x1008ff12  ), spawn "amixer -q sset Master toggle")  -- XF86AudioMute
+    , ((0,                          0x1008ff11  ), spawn "amixer -q sset Master 5%-")     -- XF86AudioLowerVolume
+    , ((0,                          0x1008ff13  ), spawn "amixer -q sset Master 5%+")     -- XF86AudioRaiseVolume
     ]
     ++
     -- mod-[1..9] %! Switch to workspace N
