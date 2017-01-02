@@ -48,7 +48,7 @@ myTerminal      = "urxvt"
 modMask' :: KeyMask
 modMask' = mod4Mask
 -- Define workspaces
-myWorkspaces    = ["1:main","2:web","3:irc","4:remote","5:misc", "6:misc", "7:misc", "8:misc", "9:uti irc"]
+myWorkspaces    = ["1:main","2:web","3:irc","4:slack","5:music", "6:misc", "7:misc", "8:misc", "9:vpn"]
 -- Dzen/Conky
 myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '1000' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
 myStatusBar = "conky -c /home/bradonk/.xmonad/.conky_dzen | dzen2 -x '1000' -w '752' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
@@ -79,12 +79,9 @@ main = do
 manageHook' :: ManageHook
 manageHook' = (composeAll . concat $
     [ [resource     =? r            --> doIgnore            |   r   <- myIgnores] -- ignore desktop
-    , [className    =? c            --> doShift  "1:main"   |   c   <- myDev    ] -- move dev to main
     , [className    =? c            --> doShift  "2:web"    |   c   <- myWebs   ] -- move webs to main
-    , [className    =? c            --> doShift  "3:vim"    |   c   <- myVim    ] -- move webs to main
-    , [className    =? c            --> doShift  "4:chat"   |   c   <- myChat   ] -- move chat to chat
+    , [className    =? c            --> doShift  "4:slack"  |   c   <- myChat   ] -- move chat to chat
     , [className    =? c            --> doShift  "5:music"  |   c   <- myMusic  ] -- move music to music
-    , [className    =? c            --> doShift  "6:gimp"   |   c   <- myGimp   ] -- move img to div
     , [className    =? c            --> doCenterFloat       |   c   <- myFloats ] -- float my floats
     , [name         =? n            --> doCenterFloat       |   n   <- myNames  ] -- float my names
     , [isFullscreen                 --> myDoFullFloat                           ]
@@ -98,12 +95,8 @@ manageHook' = (composeAll . concat $
         -- classnames
         myFloats  = ["Smplayer","MPlayer","VirtualBox","Xmessage","XFontSel","Downloads","Nm-connection-editor"]
         myWebs    = ["Firefox","Google-chrome","Chromium", "Chromium-browser"]
-        myMovie   = ["Boxee","Trine"]
-        myMusic   = ["Rhythmbox","Spotify"]
-        myChat    = ["Pidgin","Buddy List", "Psi", "Psi+", "chat", "psi"]
-        myGimp    = ["Gimp"]
-        myDev     = ["gnome-terminal"]
-        myVim     = ["Gvim"]
+        myMusic   = ["Google Play Music Desktop Player"]
+        myChat    = ["Slack"]
 
         -- resources
         myIgnores = ["desktop","desktop_window","notify-osd","stalonetray","trayer"]
