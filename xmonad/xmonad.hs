@@ -50,8 +50,8 @@ modMask' = mod4Mask
 -- Define workspaces
 myWorkspaces    = ["1:main","2:web","3:irc","4:slack","5:music", "6:misc", "7:misc", "8:misc", "9:vpn"]
 -- Dzen/Conky
-myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '1000' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
-myStatusBar = "conky -c /home/bradonk/.xmonad/.conky_dzen | dzen2 -x '1000' -w '752' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
+myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '950' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
+myStatusBar = "conky -c /home/bradonk/.xmonad/.conky_dzen | dzen2 -x '950' -w '754' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
 myBitmapsDir = "/home/bradonk/.xmonad/dzen2"
 --}}}
 -- Main {{{
