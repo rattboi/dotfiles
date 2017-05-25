@@ -1,6 +1,7 @@
 #!/bin/sh
 # Script to configure X, start common apps, and start xmonad.
-# Author: Vic Fryzel
+# Author: Bradon Kanyid
+# Original: Vic Fryzel
 # http://github.com/vicfryzel/xmonad-config
 
 
@@ -23,23 +24,26 @@ if [ -x /usr/bin/redshift-gtk ] ; then
   redshift-gtk &
 fi
 
+if [ -x /usr/bin/pasystray ] ; then
+  pasystray &
+fi
+
 # Touchpad settings
 synclient MaxTapTime=0 # disable tap-to-click (180 default)
 synclient HorizTwoFingerScroll=1 # enable side-scrolling (0 default)
 synclient PalmDetect=1 # enable palm detection (0 default)
 
-# Start two terminals
+# Start a terminal
 urxvt &
 
 # Start a browser
 browser &
 
 # Start screensaver
-gnome-screensaver &
+xautolock -time 5 -locker "slock xset dpms force off" \
+  -notify 10 -notifier "notify-send -t 5000 -i gtk-dialog-info 'Locking in 10 seconds'" &
 
 # Start sound server
 pulseaudio --start --log-target=syslog &
 
 feh --bg-scale $(find /usr/share/backgrounds | egrep 'jpg|png' | shuf -n 1)
-
-#gnome-session &

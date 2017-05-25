@@ -1,0 +1,12 @@
+#!/bin/bash
+
+LID_CLOSED=`cat /proc/acpi/button/lid/LID/state | grep "closed"`
+OTHER_MON=`disper -l | grep "DP2"`
+
+if [ -n "$LID_CLOSED" ] && [ -n "$OTHER_MON" ]; then
+  disper -d DP2-1,DP2-2 -r "1920x1080","1920x1080" -t "right" -e
+elif [ -z "$LID_CLOSED" ] && [ -n "$OTHER_MON" ]; then
+  disper -d eDP1,DP2-1,DP2-2 -r "1920x1080","1920x1080","1920x1080" -t "right" -e
+else
+  disper -d eDP1 -r "1920x1080" -s
+fi

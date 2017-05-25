@@ -48,10 +48,10 @@ myTerminal      = "urxvt"
 modMask' :: KeyMask
 modMask' = mod4Mask
 -- Define workspaces
-myWorkspaces    = ["1:main","2:web","3:irc","4:slack","5:music", "6:misc", "7:misc", "8:misc", "9:vpn"]
+myWorkspaces    = ["1:main","2:web","3:irc","4:slack","5:music", "6:misc", "7:misc", "8:zoom", "9:vpn"]
 -- Dzen/Conky
 myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '950' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
-myStatusBar = "conky -c /home/bradonk/.xmonad/.conky_dzen | dzen2 -x '950' -w '754' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
+myStatusBar = "conky -c /home/bradonk/.xmonad/.conky_dzen | dzen2 -x '950' -w '802' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
 myBitmapsDir = "/home/bradonk/.xmonad/dzen2"
 --}}}
 -- Main {{{
@@ -82,6 +82,7 @@ manageHook' = (composeAll . concat $
     , [className    =? c            --> doShift  "2:web"    |   c   <- myWebs   ] -- move webs to main
     , [className    =? c            --> doShift  "4:slack"  |   c   <- myChat   ] -- move chat to chat
     , [className    =? c            --> doShift  "5:music"  |   c   <- myMusic  ] -- move music to music
+    , [className    =? c            --> doShift  "8:zoom"   |   c   <- myZoom   ] -- move zoom crap to zoom
     , [className    =? c            --> doCenterFloat       |   c   <- myFloats ] -- float my floats
     , [name         =? n            --> doCenterFloat       |   n   <- myNames  ] -- float my names
     , [isFullscreen                 --> myDoFullFloat                           ]
@@ -97,6 +98,7 @@ manageHook' = (composeAll . concat $
         myWebs    = ["Firefox","Google-chrome","Chromium", "Chromium-browser"]
         myMusic   = ["Google Play Music Desktop Player"]
         myChat    = ["Slack"]
+        myZoom    = ["zoom"]
 
         -- resources
         myIgnores = ["desktop","desktop_window","notify-osd","stalonetray","trayer"]
@@ -189,7 +191,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. shiftMask,      xK_Return   ), spawn $ XMonad.terminal conf)
     , ((modMask,                    xK_F2       ), spawn "gmrun")
     , ((modMask .|. shiftMask,      xK_c        ), kill)
-    , ((modMask .|. shiftMask,      xK_l        ), spawn "slock")
+    , ((modMask .|. shiftMask,      xK_l        ), spawn "slock xset dpms force off")
 
     -- Layouts
     , ((modMask,                    xK_space    ), sendMessage NextLayout)
@@ -233,9 +235,9 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. shiftMask,      xK_Down     ), spawn "xbacklight -dec 10")
 
     -- Media Keys
-    , ((0,                          0x1008ff12  ), spawn "amixer -q sset Master toggle")  -- XF86AudioMute
-    , ((0,                          0x1008ff11  ), spawn "amixer -q sset Master 5%-")     -- XF86AudioLowerVolume
-    , ((0,                          0x1008ff13  ), spawn "amixer -q sset Master 5%+")     -- XF86AudioRaiseVolume
+    , ((0,                          0x1008ff12  ), spawn "amixer -D pulse set Master 1+ togglemute")  -- XF86AudioMute
+    , ((0,                          0x1008ff11  ), spawn "amixer -q sset Master 5%-")                 -- XF86AudioLowerVolume
+    , ((0,                          0x1008ff13  ), spawn "amixer -q sset Master 5%+")                 -- XF86AudioRaiseVolume
     ]
     ++
     -- mod-[1..9] %! Switch to workspace N
@@ -250,7 +252,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
     --
     [((m .|. modMask, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_w, xK_e] [1, 0]
+        | (key, sc) <- zip [xK_r, xK_w, xK_e] [0, 1, 2]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 --}}}
