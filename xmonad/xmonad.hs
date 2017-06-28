@@ -1,5 +1,6 @@
 -- ~/.xmonad/xmonad.hs
 -- Imports {{{
+import Data.List (isInfixOf, isSubsequenceOf)
 import XMonad
 -- Prompt
 import XMonad.Prompt
@@ -21,7 +22,7 @@ import XMonad.Hooks.SetWMName
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.FadeInactive
-import XMonad.Hooks.EwmhDesktops
+import qualified XMonad.Hooks.EwmhDesktops as E
 
 import XMonad.Layout.NoBorders (smartBorders, noBorders)
 import XMonad.Layout.PerWorkspace (onWorkspace, onWorkspaces)
@@ -69,9 +70,16 @@ main = do
       , normalBorderColor   = colorNormalBorder
       , focusedBorderColor  = colorFocusedBorder
       , borderWidth         = 2
-      , startupHook         = setWMName "LG3D"
+      , handleEventHook     = eventHook'
+      , startupHook         = startupHook'
 }
 --}}}
+
+startupHook' = do
+    E.ewmhDesktopsStartup
+    return ()
+
+eventHook' = E.ewmhDesktopsEventHook <+> E.fullscreenEventHook <+> E.fullscreenEventHook
 
 
 -- Hooks {{{
@@ -162,7 +170,7 @@ colorFocusedBorder  = "#fd971f"
 
 barFont  = "terminus"
 barXFont = "inconsolata:size=12"
-xftFont = "xft: inconsolata-14"
+xftFont = "xft: inconsolata-20"
 --}}}
 
 -- Prompt Config {{{
@@ -182,7 +190,9 @@ mXPConfig =
 largeXPConfig :: XPConfig
 largeXPConfig = mXPConfig
                 { font = xftFont
-                , height = 22
+                , height = 30
+                , searchPredicate = isSubsequenceOf
+                , alwaysHighlight = True
                 }
 -- }}}
 -- Key mapping {{{

@@ -29,14 +29,17 @@ if UseVimplug == 1
     Plug 'tpope/vim-repeat'
     Plug 'gregsexton/gitv'
     Plug 'mhinz/vim-signify'
-    Plug 'scrooloose/syntastic'
+    " Plug 'scrooloose/syntastic'
+    Plug 'w0rp/ale'
     Plug 'scrooloose/nerdtree'
+    Plug 'scrooloose/nerdcommenter'
     Plug 'kien/ctrlp.vim'
     Plug 'ervandew/supertab'
     Plug 'mattn/webapi-vim'
     Plug 'mattn/gist-vim'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+    Plug 'Valloric/YouCompleteMe'
 
     Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
     Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -44,6 +47,7 @@ if UseVimplug == 1
     Plug 'tpope/vim-salve', { 'for': 'clojure' }
     Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
     Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+    Plug 'python-mode/python-mode', { 'for': 'python' }
     Plug 'chase/vim-ansible-yaml'
     Plug 'vim-scripts/verilog_systemverilog.vim'
     Plug 'fatih/vim-go'
@@ -59,6 +63,8 @@ if UseVimplug == 1
   
     Plug 'bling/vim-airline'
     Plug 'flazz/vim-colorschemes'
+
+    Plug 'nathanaelkane/vim-indent-guides'
 
     call plug#end()
 endif
@@ -149,6 +155,9 @@ if UseVimplug == 1 && PluginsInstalled == 1
     " Make syntastic shut up about asm files
     let g:loaded_syntastic_asm_gcc_checker = 1
     let g:syntastic_python_python_exec = '/usr/bin/python3'
+
+    " PyMode settings
+    let g:pymode_folding = 0
 
     " Set up ruby_path to use system ruby, so that it doesn't use jruby, which
     " kills startup time
