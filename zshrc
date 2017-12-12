@@ -29,7 +29,9 @@ ZSH_THEME="flazz"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode docker ruby virtualenvwrapper)
+plugins=(git vi-mode docker ruby virtualenvwrapper sudo)
+
+[[ -f ~/.zshrc.custom.before ]] && source ~/.zshrc.custom.before
 
 source $ZSH/oh-my-zsh.sh
 
