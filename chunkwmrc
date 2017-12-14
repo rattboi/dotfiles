@@ -90,6 +90,6 @@ chunkc core::load ffm.so
 
 chunkc tiling::rule --owner Finder --name Copy --state float
 chunkc tiling::rule --owner \"App Store\" --state float
-chunkc tiling::rule --owner \"Google Play Music Desktop Player\" --desktop 5
-chunkc tiling::rule --owner Slack --desktop 4
+chunkc tiling::rule --owner \"Google Play Music Desktop Player\" --desktop 2
+chunkc tiling::rule --owner Slack --desktop 3
 chunkc tiling::rule --owner \"Microsoft Outlook\" --name \".*Reminder.*\" --state float

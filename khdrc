@@ -11,14 +11,12 @@ cmd + shift - return : open -na /Applications/kitty.app
 # equalize size of windows
 shift + alt - 0 : chunkc tiling::desktop --equalize
 
-# move floating windows / windows on a floating space
-shift + alt - up     : chunkc tiling::window --warp-floating fullscreen
-shift + alt - left   : chunkc tiling::window --warp-floating left
-shift + alt - right  : chunkc tiling::window --warp-floating right
-shift + cmd - left   : chunkc tiling::window --warp-floating top-left
-shift + cmd - right  : chunkc tiling::window --warp-floating top-right
-shift + ctrl - left  : chunkc tiling::window --warp-floating bottom-left
-shift + ctrl - right : chunkc tiling::window --warp-floating bottom-right
+cmd - 1 -> : chunkc tiling::monitor -f $(chunkc tiling::query --monitor-for-desktop 1)
+cmd - 2 -> : chunkc tiling::monitor -f $(chunkc tiling::query --monitor-for-desktop 2)
+cmd - 3 -> : chunkc tiling::monitor -f $(chunkc tiling::query --monitor-for-desktop 3)
+cmd - 4 -> : chunkc tiling::monitor -f $(chunkc tiling::query --monitor-for-desktop 4)
+cmd - 5 -> : chunkc tiling::monitor -f $(chunkc tiling::query --monitor-for-desktop 5)
+cmd - 6 -> : chunkc tiling::monitor -f $(chunkc tiling::query --monitor-for-desktop 6)
 
 # send window to desktop and switch desktop
 shift + cmd - 1 : chunkc tiling::window -d 1
