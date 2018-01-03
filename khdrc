@@ -1,5 +1,6 @@
 # reload config
-cmd + alt + ctrl + shift - r : khd -e "reload"
+cmd + alt + ctrl + shift - r : brew services restart chunkwm
+cmd + ctrl - r : khd -e "reload"
 
 # focus window
 cmd + alt + ctrl + shift - j : chunkc tiling::window --focus prev
@@ -71,18 +72,14 @@ cmd + alt + ctrl + shift - e : chunkc tiling::window --toggle split
 # float / unfloat window
 cmd + alt + ctrl + shift - t : chunkc tiling::window --toggle float
 
-# toggle sticky, float and resize to picture-in-picture size
-alt - s : chunkc tiling::window --toggle sticky;\
-          chunkc tiling::window --warp-floating pip-right
-
 # change layout of desktop
 ctrl + alt - a : chunkc tiling::desktop --layout bsp
 ctrl + alt - s : chunkc tiling::desktop --layout monocle
 ctrl + alt - d : chunkc tiling::desktop --layout float
 
-ctrl + alt - w : chunkc tiling::desktop --deserialize ~/.chunkwm_layouts/dev_1
-
 # Outlook rebind test
 
 alt - 1 [ Microsoft Outlook ] -> : khd -p "cmd - 1"
 alt - 2 [ Microsoft Outlook ] -> : khd -p "cmd - 2" 
+
+shift - help [kitty] : khd -p "ctrl + shift - v"
