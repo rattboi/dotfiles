@@ -39,7 +39,7 @@ if UseVimplug == 1
     Plug 'mattn/gist-vim'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-    Plug 'Valloric/YouCompleteMe'
+    " Plug 'Valloric/YouCompleteMe'
 
     Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
     Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -151,17 +151,14 @@ if UseVimplug == 1 && PluginsInstalled == 1
     " Colorscheme stuff
     set background=dark
     colorscheme Chasing_Logic
+    " Fix background color in kitty terminal
+    let &t_ut=''
 
     " Make syntastic shut up about asm files
     let g:loaded_syntastic_asm_gcc_checker = 1
-    let g:syntastic_python_python_exec = '/usr/bin/python3'
 
     " PyMode settings
     let g:pymode_folding = 0
-
-    " Set up ruby_path to use system ruby, so that it doesn't use jruby, which
-    " kills startup time
-    let g:ruby_path='/usr/bin/ruby'
 
     " This macro increments every number on a line by one. Very useful for
     " deploy templates
