@@ -95,4 +95,6 @@ chunkc tiling::rule --owner \"App Store\" --state float
 chunkc tiling::rule --owner Mattermost --desktop 4
 chunkc tiling::rule --owner Slack --desktop 4
 chunkc tiling::rule --owner HipChat --desktop 4
+chunkc tiling::rule --owner Discord --desktop 4
+chunkc tiling::rule --owner \"Microsoft Teams\" --desktop 4
 chunkc tiling::rule --owner \"Google Play Music Desktop Player\" --desktop 5
