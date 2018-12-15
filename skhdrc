@@ -1,5 +1,5 @@
 # reload config
-cmd + alt + ctrl + shift - r : brew services restart chunkwm
+ctrl + alt - r : brew services restart chunkwm
 cmd + ctrl - r : khd -e "reload"
 
 # focus window
@@ -43,12 +43,11 @@ ctrl + cmd - 2  : chunkc tiling::window --send-to-monitor 2; chunkc tiling::moni
 ctrl + cmd - 3  : chunkc tiling::window --send-to-monitor 3; chunkc tiling::monitor -f 3
 
 # increase/decrease region size
-cmd + alt + ctrl + shift - h : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge east
-cmd + alt + ctrl + shift - l : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge east
-
+cmd + alt + ctrl + shift - s : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge east
+cmd + alt + ctrl + shift - b : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge east
 
 # rotate tree
-ctrl + alt - r : chunkc tiling::desktop --rotate 90
+cmd + alt + ctrl + shift - r : chunkc tiling::desktop --rotate 90
 
 # mirror tree y-axis
 cmd + alt + ctrl + shift - y : chunkc tiling::desktop --mirror vertical
@@ -78,5 +77,3 @@ cmd + alt + ctrl + shift - t : chunkc tiling::window --toggle float
 ctrl + alt - a : chunkc tiling::desktop --layout bsp
 ctrl + alt - s : chunkc tiling::desktop --layout monocle
 ctrl + alt - d : chunkc tiling::desktop --layout float
-
-shift - help [kitty] : khd -p "ctrl + shift - v"

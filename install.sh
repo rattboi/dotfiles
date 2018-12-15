@@ -1,7 +1,7 @@
 #!/usr/bin/env bash 
 
 PWD=$(pwd)
-EASYFILES="oh-my-zsh zshrc vimrc Xdefaults tmux.conf urxvt ideavimrc stalonetrayrc xmonad bin khdrc chunkwmrc"
+EASYFILES="oh-my-zsh zshrc vimrc Xdefaults tmux.conf urxvt ideavimrc stalonetrayrc xmonad bin skhdrc chunkwmrc"
 
 # get submodules set up
 git submodule init

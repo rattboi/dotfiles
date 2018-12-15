@@ -18,8 +18,7 @@ chunkc core::hotload 1
 # NOTE: the following are config variables for the chunkwm-tiling plugin.
 #
 
-chunkc set global_desktop_mode           monocle
-# chunkc set 2_desktop_mode                monocle
+chunkc set global_desktop_mode           bsp
 
 chunkc set global_desktop_offset_top     10
 chunkc set global_desktop_offset_bottom  10
@@ -89,12 +88,9 @@ chunkc core::load ffm.so
 #
 
 chunkc tiling::rule --owner Finder --name Copy --state float
-chunkc tiling::rule --owner \"Microsoft Outlook\" --name \".*Reminder.*\" --state float
 chunkc tiling::rule --owner \"App Store\" --state float
 
-chunkc tiling::rule --owner Mattermost --desktop 4
 chunkc tiling::rule --owner Slack --desktop 4
 chunkc tiling::rule --owner HipChat --desktop 4
 chunkc tiling::rule --owner Discord --desktop 4
-chunkc tiling::rule --owner \"Microsoft Teams\" --desktop 4
 chunkc tiling::rule --owner \"Google Play Music Desktop Player\" --desktop 5
